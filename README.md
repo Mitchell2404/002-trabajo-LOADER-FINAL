@@ -8,3 +8,4 @@ Este inclye los archivos:
 Este incluye los archivos:
 *loader_imagen_2.html
 *loader_imagen.css
+*loader_imagen.js
