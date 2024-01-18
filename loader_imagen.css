@@ -1,0 +1,52 @@
+.container{
+    text-align: left;
+}
+/*IMPORTANTE REALIZAR ESTO CON CADA IMAGEN ("MAX WIDTH" VARIA CON RESPECTO AL TAMANO DE LA IMAGEN)*/
+#img_001{
+max-width: 100px;
+visibility: hidden;
+}
+#img_002{
+    max-width: 100px;
+    visibility: hidden;
+    }
+.loader{
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    visibility: visible;
+}
+.loader::before{
+    content: '';
+    position: absolute;
+    display: block;
+    border: 18px solid rgb(8, 205, 219);
+    border-radius: 50%;
+    border-top: 10px solid rgb(0, 255, 85);
+    width: 100px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-animation: turn 2s linear infinite;
+    animation: turn 2s linear infinite;
+    z-index: -1;
+}
+@keyframes turn{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes turn{
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}

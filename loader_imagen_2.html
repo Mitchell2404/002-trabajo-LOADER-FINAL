@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>loader_imagen</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='loader_imagen.css'>
+</head>
+<!--EJEMPLO DE PAGINA-->
+<body>
+    <header>
+        <div></div>
+        <nav>
+            <ul>
+                <li>primero</li>
+                <li>segundo</li>
+                <li>tercero</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="main">
+        <section class="articles">
+            <article>
+                <!--IMPORTANTE EL CLASS-->
+                <div class="container">
+                    <h2>Primer perrito Bonito</h2>
+                    <!--IMPORTANTE EL CLASS Y EL ID (ESTE ULTIMO VA CAMBIANDO CON RESPECTO AL NUMERO DE IMAGEN)-->
+                    <span class="loader" id="loader_1">
+                        <!--IMPORTANTE EL ID (ESTE VA CAMBIANDO CON RESPECTO AL NUMERO DE IMAGEN)-->
+                        <img src="https://www.okchicas.com/wp-content/uploads/2015/11/Adorables-cachorros-que-no-parecen-reales-24.jpg"  id="img_001" width="100px"/>
+                    </span>
+                </div>
+            </article>
+            <article >
+                <div class="container">
+                    <h2>Segundo perrito Bonito</h2>
+                    <span class="loader" id="loader_2">
+                        <img src="https://i.pinimg.com/564x/13/4f/a2/134fa26cbb6af29253a54ab80c318f17.jpg" id="img_002" width="100px"/>
+                    </span>
+                </div>
+            </article>
+        </section>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //Se realiza lo siguiente con todas las imagenes:
+            var image_001 = $('#img_001');
+            var load_1 = $('#loader_1');
+            
+            // Verificar si la imagen ya está cargada (por ejemplo, en caché)
+            if (image_001[0].complete) {
+                image_001.css("visibility", "visible");
+                load_1.removeClass("loader");
+            } else {
+                // Si no está cargada, esperar al evento de carga
+                image_001.on('load', function() {
+                    $(this).css("visibility", "visible");
+                    load_1.removeClass("loader");
+                });
+            }
+            //*******************************************************************
+            var image_002 = $('#img_002');
+            var load_2 = $('#loader_2');
+            
+            if (image_002[0].complete) {
+                image_002.css("visibility", "visible");
+                load_2.removeClass("loader");
+            } else {
+                image_002.on('load', function() {
+                    $(this).css("visibility", "visible");
+                    load_2.removeClass("loader");
+                });
+            }
+        });
+    </script>
+</body>
+</html>
